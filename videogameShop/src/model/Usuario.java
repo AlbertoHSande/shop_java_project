@@ -81,4 +81,11 @@ public class Usuario {
 	public void setIsadmin(boolean isadmin) {
 		this.isadmin = isadmin;
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
 }
