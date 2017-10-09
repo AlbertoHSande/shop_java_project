@@ -17,7 +17,7 @@ public class servlet_producto extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6251665846157031729L;
+	private static final long serialVersionUID = 1L;
 
 	public void sProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
@@ -40,9 +40,12 @@ public class servlet_producto extends HttpServlet {
 		p.setNombre = request.getParameter("nombre");
 		p.setPlataforma = request.getParameter("plataforma");
 		p.setCategoria = request.getParameter("categoria");
-		p.setStock = request.getParameter("stock");
-		p.setPrecio = request.getParameter("precio");
-		p.setFecha = request.getParameter("fecha");
+		p.setStock = Integer.parseInt(request.getParameter("stock"));
+		p.setPrecio = Integer.parseInt(request.getParameter("precio"));
+		// revisar formato con el que envía el form
+		String dateTarget = request.getParameter("fecha");
+		DateFormat df = new SimpleDateFormat("");
+		p.setFecha = df.parse(df);
 		p.setDescripcion = request.getParameter("descripcion");
 		return p;
 	}
