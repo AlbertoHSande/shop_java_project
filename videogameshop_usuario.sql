@@ -16,26 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin` (
-  `idusuario` int(11) NOT NULL,
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `apellidos` varchar(45) DEFAULT NULL,
+  `DNI` char(9) NOT NULL,
+  `e-mail` varchar(45) NOT NULL,
+  `nombre usuario` varchar(45) NOT NULL,
+  `password` varchar(10) NOT NULL,
   `isadmin` blob NOT NULL,
-  PRIMARY KEY (`idusuario`)
+  PRIMARY KEY (`idusuario`),
+  UNIQUE KEY `DNI_UNIQUE` (`DNI`),
+  UNIQUE KEY `e-mail_UNIQUE` (`e-mail`),
+  UNIQUE KEY `nombre usuario_UNIQUE` (`nombre usuario`),
+  UNIQUE KEY `password_UNIQUE` (`password`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-09  9:12:33
+-- Dump completed on 2017-10-09 12:03:31
