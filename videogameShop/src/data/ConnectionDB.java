@@ -4,15 +4,53 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionDB {
+import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
-	Connection con = null;
+
+public class ConnectionDB {
+	
+	/*Connection con = null;
 	String DB = null;
 	String driverURL = "jdbc:mysql:///" + DB;
 	String user = "root";
-	String pass = "root";
+	String pass = "root";*/
 	
-	public ConnectionDB(String DB) {
+	private BasicDataSource pool;
+	private static ConnectionDB instancia = null;
+
+	private ConnectionDB ()
+	{
+		pool = new BasicDataSource();
+		pool.setDriverClassName("com.mysql.jdbc.Driver");
+		pool.setUsername("root");
+		pool.setPassword("");
+		pool.setUrl("jdbc:mysql://localhost/test");
+		pool.setInitialSize(40); 
+
+	}
+	
+	public static ConnectionDB getInstancia()
+	{
+		if (instancia == null)
+			instancia = new ConnectionDB();
+
+		return instancia;
+	}
+
+	public BasicDataSource getPool() {
+		return pool;
+	}
+	
+	/*public ConnectionDB(){
+		
+		con = null;
+		DB = null;
+		driverURL = "jdbc:mysql:///" + DB;
+		user = "root";
+		pass = "root";
+	}
+	
+	public void Connection (String DB) {
 		try {
 			con = DriverManager.getConnection(driverURL, user, DB);
 		} catch (SQLException e) {
@@ -33,6 +71,6 @@ public class ConnectionDB {
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace());
 		}
-	}
+	}*/
 	
 }
