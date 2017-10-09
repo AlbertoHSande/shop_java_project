@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DAOInterface;
+import dao.DAOProducto;
 
 @WebServlet("/producto")
 
