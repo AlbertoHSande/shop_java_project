@@ -12,7 +12,7 @@ import dao.DAOProducto;
 
 @WebServlet("/producto")
 
-public class servlet_producto extends HttpServlet {
+public class ServletProducto extends HttpServlet {
 
 	/**
 	 * 
