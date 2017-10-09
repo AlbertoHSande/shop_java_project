@@ -24,7 +24,8 @@ public class servlet_producto extends HttpServlet {
 			DAOInterface dao = new DAOProducto();
 			
 			if(operation.equals("alta")) {
-				dao.
+				dao.insert(request);
+				response.sendRedirect("productos.html?listado");
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
