@@ -17,7 +17,7 @@ public class servlet_producto extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6251665846157031729L;
+	private static final long serialVersionUID = 1L;
 
 	public void sProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
