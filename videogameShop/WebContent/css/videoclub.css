@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ESTILOS GENERALES */
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11pt;
+    background-color:#000;
+    background-image:url("../images/fondo1pq.png");
+    background-repeat:repeat-x
+}
+#body p {
+    padding-left:30px;
+}
+h1{
+    text-align:center;
+    /* Bs lo colocaba en 36px. */
+    font-size: 30px;
+}
+h2 {
+    /* Bs lo colocaba en 30px. */
+    font-size: 24px;    
+    border: 1px #000 solid;
+    border: ridge;
+    color: #fff;
+    background-color:steelblue;
+}
+
+h3{
+    /* Bs lo colocaba en 24px. */
+    font-size: 18px;
+}
+
+legend{
+    /* Bs lo colocaba en 21px. */
+    font-size: 18px;
+}
+
+/* ESTILOS PARA COMPOSICIÓN */
+
+#header{
+    margin-bottom: 20px;
+}
+
+#header h2{
+    padding-left: 10px;
+}
+
+#main{
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#wrapper{
+    margin: 0 auto;	
+    width:600px;
+}
+#nombre,#precio,#fecha,#descripcion,#stock{
+	width: 60%;
+}
