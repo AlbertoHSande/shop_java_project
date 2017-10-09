@@ -14,11 +14,11 @@
 			<h2>Paso 01 - Nuevo Producto</h2>
 		</div>
 		<div id="main">
-			<form>
+			<form action="servlet_producto" method="post">
 
 				<div class="form-group">
 					<label for="nombre">Nombre Producto:</label> <input type="text"
-						class="form-control" id="nombre">
+						class="form-control" id="nombre" name="nombre">
 				</div>
 				<label for="plataforma">Plataforma</label><br>
 				<div class="checkbox">
@@ -28,7 +28,7 @@
 				</div>
 				<p>
 					<label for="categoria">Categoría</label><br> <select
-						class="selectpicker" id="categoria">
+						class="selectpicker" id="categoria" name="categoria">
 						<option>Deporte</option>
 						<option>Rol</option>
 						<option>Acción</option>
@@ -37,22 +37,22 @@
 				</p>
 				<div class="form-group">
 					<label for="stock">Stock:</label> <input type="number"
-						class="form-control" id="stock">
+						class="form-control" id="stock" name="stock">
 				</div>
 
 				<div class="form-group">
 					<label for="precio">Precio:</label> <input type="number"
-						class="form-control" id="precio">
+						class="form-control" id="precio" name="precio">
 				</div>
 
 				<div class="form-group">
 					<label for="fecha">Fecha:</label> <input type="date"
-						class="form-control" id="fecha">
+						class="form-control" id="fecha" name="fecha">
 				</div>
 
 				<div class="form-group">
 					<label for="descripcion">Descripción:</label>
-					<textarea class="form-control" rows="5" id="descripcion"></textarea>
+					<textarea class="form-control" rows="5" id="descripcion" name="descripcion"></textarea>
 				</div>
 				<button type="submit" class="btn btn-success">Añadir</button>
 
