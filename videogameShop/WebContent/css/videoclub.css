@@ -6,10 +6,10 @@
 body {
     font-family:Arial, Helvetica, sans-serif;
     font-size:11pt;
-    background-color:#000;
-    background-image:url("../images/fondo1pq.png");
-    background-repeat:repeat-x
+    background:url("../images/maxresdefault.jpg");
+    background-repeat: repeat-y;
 }
+
 #body p {
     padding-left:30px;
 }
@@ -55,8 +55,10 @@ legend{
 
 #wrapper{
     margin: 0 auto;	
-    width:600px;
+    width:60%;
 }
 #nombre,#precio,#fecha,#descripcion,#stock{
 	width: 60%;
 }
+
+
