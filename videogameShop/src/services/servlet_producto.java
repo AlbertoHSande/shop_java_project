@@ -23,15 +23,28 @@ public class servlet_producto extends HttpServlet {
 		try {
 			String operation = request.getParameter("operation");
 			DAOInterface dao = new DAOProducto();
+			Producto p = getDatos(request);
 			
 			if(operation.equals("alta")) {
-				dao.insert(request);
+				dao.insert(p);
 				response.sendRedirect("productos.html?listado");
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
 
+	}
+	
+	public Producto getDatos(HttpServletRequest request) {
+		Producto p = new Producto();
+		p.setNombre = request.getParameter("nombre");
+		p.setPlataforma = request.getParameter("plataforma");
+		p.setCategoria = request.getParameter("categoria");
+		p.setStock = request.getParameter("stock");
+		p.setPrecio = request.getParameter("precio");
+		p.setFecha = request.getParameter("fecha");
+		p.setDescripcion = request.getParameter("descripcion");
+		return p;
 	}
 
 }
