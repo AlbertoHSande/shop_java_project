@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAOInterface;
+import dao.DAOInterface;
 
 @WebServlet("/producto")
 
