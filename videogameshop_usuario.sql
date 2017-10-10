@@ -27,14 +27,14 @@ CREATE TABLE `usuario` (
   `nombre` varchar(45) DEFAULT NULL,
   `apellidos` varchar(45) DEFAULT NULL,
   `DNI` char(9) NOT NULL,
-  `e-mail` varchar(45) NOT NULL,
-  `nombre usuario` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `nick` varchar(45) NOT NULL,
   `password` varchar(10) NOT NULL,
   `isadmin` blob NOT NULL,
   PRIMARY KEY (`idusuario`),
   UNIQUE KEY `DNI_UNIQUE` (`DNI`),
-  UNIQUE KEY `e-mail_UNIQUE` (`e-mail`),
-  UNIQUE KEY `nombre usuario_UNIQUE` (`nombre usuario`),
+  UNIQUE KEY `e-mail_UNIQUE` (`email`),
+  UNIQUE KEY `nombre usuario_UNIQUE` (`nick`),
   UNIQUE KEY `password_UNIQUE` (`password`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-09 12:03:31
+-- Dump completed on 2017-10-10 15:08:29
