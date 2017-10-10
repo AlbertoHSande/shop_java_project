@@ -27,7 +27,7 @@ public class ServletProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void sProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		try {
+		/*try {
 			String operation = request.getParameter("operation");
 			DAOInterface dao = new DAOProducto();
 			Producto p = getDatos(request);
@@ -39,8 +39,8 @@ public class ServletProducto extends HttpServlet {
 			
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
-		}
-
+		}*/
+		System.out.println("En metodo");
 	}
 	
 	public Producto getDatos(HttpServletRequest request) throws ParseException {
@@ -49,12 +49,21 @@ public class ServletProducto extends HttpServlet {
 		p.setPlataforma(request.getParameter("plataforma"));
 		p.setCategoria(request.getParameter("categoria"));
 		p.setStock(Integer.parseInt(request.getParameter("stock")));
+<<<<<<< HEAD
 		p.setPrecio(Float.parseFloat(request.getParameter("precio")));
 		// revisar formato con el que envia el form
+=======
+		/*p.setPrecio(Float.parseFloat(request.getParameter("precio")));
+		// revisar formato con el que envía el form
+>>>>>>> branch 'interfaz_producto' of https://github.com/HDsettings/shop_java_project.git
 		String dateTarget = request.getParameter("fecha");
 		DateFormat df = new SimpleDateFormat("");
 		p.setFecha(df.parse(dateTarget));
 		p.setDescripcion(request.getParameter("descripcion"));
+		System.out.println("Nombre: "+p.getNombre()+" Plat: "+p.getPlataforma()+" Catego: "+p.getCategoria()+
+		" Stock: "+p.getStock()+ " Precio: "+p.getPrecio()+" Fecha: "+p.getFecha());
+		*/
+		System.out.println("Nombre: "+p.getNombre()+" Plat: "+p.getPlataforma()+" Catego: "+p.getCategoria()+" Stock: "+p.getStock());
 		return p;
 	}
 	
@@ -64,6 +73,10 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
+=======
+		System.out.println("En GET");
+>>>>>>> branch 'interfaz_producto' of https://github.com/HDsettings/shop_java_project.git
 		sProducto(request, response);
 	}
 
@@ -72,6 +85,35 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		doGet(request, response);
+=======
+		/*
+		Producto p = new Producto();
+		p.setNombre(request.getParameter("nombre"));
+		System.out.println(p.getNombre());
+		*/
+		String operacion;
+
+	        try {
+
+	            // Comprobamos el tipo de accion que se solicita
+	            operacion = request.getParameter("operacion");
+	          //  DAOProducto op = new DAOProducto();
+	            if (operacion.equals("alta")) {
+	                //ALTA
+	            	getDatos(request);
+	               // op.insert(getDatos(request));
+	                
+	               // response.sendRedirect("paises?operacion=listado");
+	            }
+	        
+	        
+	        }  catch (Exception e) {
+	                System.out.println("--------------------  FALLO  -----------------------------");
+	                e.printStackTrace();
+	                System.out.println("----------------------------------------------------------");
+	            }
+>>>>>>> branch 'interfaz_producto' of https://github.com/HDsettings/shop_java_project.git
 	}
 }

@@ -14,25 +14,28 @@
 			<h2>Paso 01 - Nuevo Producto</h2>
 		</div>
 		<div id="main">
-			<form action="servlet_producto" method="post">
+			<form action="servlet_producto?operacion=alta" method="post">
 
 				<div class="form-group">
 					<label for="nombre">Nombre Producto:</label> <input type="text"
 						class="form-control" id="nombre" name="nombre">
 				</div>
-				<label for="plataforma">Plataforma</label><br>
-				<div class="checkbox">
-					<label><input type="checkbox"> Play Station 4</label><br>
-					<label><input type="checkbox"> Xbox One</label><br> <label><input
-						type="checkbox"> Nintendo Swich</label>
-				</div>
+				<p>
+					<label for="plataforma">Plataforma</label><br> <select
+						class="selectpicker" id="plataforma" name="plataforma">
+						<option value="PS4" selected="selected">PS4</option>
+						<option value="XBoxOne">XBox One</option>
+						<option value="NintendoSwitch">Nintendo Switch</option>
+						<option value="PC">PC</option>
+					</select>
+				</p>
 				<p>
 					<label for="categoria">Categoría</label><br> <select
 						class="selectpicker" id="categoria" name="categoria">
-						<option>Deporte</option>
-						<option>Rol</option>
-						<option>Acción</option>
-						<option>Shooter</option>
+						<option value="Deporte" selected="selected">Deporte</option>
+						<option value="Rol">Rol</option>
+						<option value="Accion">Acción</option>
+						<option value="Shooter">Shooter</option>
 					</select>
 				</p>
 				<div class="form-group">
