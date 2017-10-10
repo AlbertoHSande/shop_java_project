@@ -20,18 +20,13 @@ public class DAOUsuario implements DAOInterface {
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			con = datasource.getConnection();
-			
-			PreparedStatement s = con.prepareStatement("INSERT INTO usuario VALUES (?,?,?,?,?,?,?)");
+			Statement s = con.createStatement();
 
-	        s.setString(1, u.getNombre());
-	        s.setString(2, u.getApellidos());
-	        s.setString(3, u.getDni());
-	        s.setString(4, u.getEmail());
-	        s.setString(5, u.getNick());
-	        s.setString(6, u.getPsswd());
-	        s.setBoolean(7, u.isIsadmin());
+			String query = "INSERT INTO usuario(nombre, apellidos, DNI, email, nick, password, isadmin) VALUES ('"
+					+ u.getNombre() + "','" + u.getApellidos() + "','" + u.getDni() + "','" + u.getEmail() + "','"
+					+ u.getNick() + "','" + u.getPsswd() + "','" + u.isIsadmin() + "')";
 
-	        i=s.executeUpdate();
+			i = s.executeUpdate(query);
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -25,10 +25,10 @@ public class DAOProducto implements DAOInterface {
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
-			System.out.println(p.getDescripcion());
+
 			String query = "INSERT INTO PRODUCTO(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
-				+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','"+ p.getStock() + "','"  + p.getPrecio() + "','"
-					+ p.getFecha() + "','" + p.getDescripcion() + "')";
+					+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','" + p.getStock()
+					+ "','" + p.getPrecio() + "','" + p.getFecha() + "','" + p.getDescripcion() + "')";
 
 			i = s.executeUpdate(query);
 
