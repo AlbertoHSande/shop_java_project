@@ -20,7 +20,7 @@ import model.Usuario;
 /**
  * Servlet implementation class servlet_usuario
  */
-@WebServlet("/usuario")
+//@WebServlet("/usuario")
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,10 +45,10 @@ public class ServletUsuario extends HttpServlet {
 		Usuario u = new Usuario();
 		u.setNombre( request.getParameter("nombre"));
 		u.setApellidos(request.getParameter("apellidos"));
-		u.setDni(request.getParameter("DNI"));
-		u.setEmail(request.getParameter("stock"));
+		u.setDni(request.getParameter("dni"));
+		u.setEmail(request.getParameter("email"));
 		u.setNick(request.getParameter("username"));
-		u.setPsswd(request.getParameter("descripcion"));
+		u.setPsswd(request.getParameter("password"));
 		return u;
 	}
 	/**
