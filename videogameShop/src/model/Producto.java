@@ -10,14 +10,14 @@ public class Producto {
 	private String categoria;
 	private int stock;
 	private float precio;
-	private Date fecha;
+	private String fecha;
 	private String descripcion;
 
 	public Producto() {
 
 	}
 
-	public Producto(int id, String nom, String plat, String cat, int stock, float pre, Date fe, String desc) {
+	public Producto(int id, String nom, String plat, String cat, int stock, float pre, String fe, String desc) {
 		this.id_producto = id;
 		this.nombre = nom;
 		this.plataforma = plat;
@@ -76,11 +76,11 @@ public class Producto {
 		return precio;
 	}
 
-	public void setFecha(Date fe) {
+	public void setFecha(String fe) {
 		this.fecha = fe;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 

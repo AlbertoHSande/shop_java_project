@@ -29,13 +29,14 @@ public class ServletProducto extends HttpServlet {
 
 	public void sProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
-			String operation = request.getParameter("operation");
-			DAOInterface dao = new DAOProducto();
+			String operation = request.getParameter("operacion");
+			DAOProducto dao = new DAOProducto();
 			Producto p = getDatos(request);
 			
 			if(operation.equals("alta")) {
 				dao.insert(p);
-				response.sendRedirect("productos.html?listado");
+				System.out.println("He introducido datos en la base");
+				//response.sendRedirect("productos.html?listado");
 			}
 			
 		} catch (Exception e) {
@@ -52,9 +53,9 @@ public class ServletProducto extends HttpServlet {
 		p.setStock(Integer.parseInt(request.getParameter("stock")));
 		p.setPrecio(Float.parseFloat(request.getParameter("precio")));
 		// revisar formato con el que envía el form
-		String dateTarget = request.getParameter("fecha");
-		DateFormat df = new SimpleDateFormat("");
-		p.setFecha(df.parse(dateTarget));
+		//String dateTarget = request.getParameter("fecha");
+		//DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
+		p.setFecha(request.getParameter("fecha"));
 		p.setDescripcion(request.getParameter("descripcion"));
 		return p;
 	}
