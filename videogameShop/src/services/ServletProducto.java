@@ -84,6 +84,31 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		sProducto(request, response);
+		/*
+		Producto p = new Producto();
+		p.setNombre(request.getParameter("nombre"));
+		System.out.println(p.getNombre());
+		*/
+		String operacion;
+
+	        try {
+
+	            // Comprobamos el tipo de accion que se solicita
+	            operacion = request.getParameter("operacion");
+	            DAOProducto op = new DAOProducto();
+	            if (operacion.equals("alta")) {
+	                //ALTA
+	            	op.insert(getDatos(request));
+	               // op.insert(getDatos(request));
+	                
+	               // response.sendRedirect("paises?operacion=listado");
+	            }
+	        
+	        
+	        }  catch (Exception e) {
+	                System.out.println("--------------------  FALLO  -----------------------------");
+	                e.printStackTrace();
+	                System.out.println("----------------------------------------------------------");
+	            }
 	}
 }
