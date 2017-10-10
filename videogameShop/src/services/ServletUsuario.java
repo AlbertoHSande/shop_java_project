@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DAOInterface;
 import dao.DAOProducto;
+import dao.DAOUsuario;
 import model.Producto;
 import model.Usuario;
 
