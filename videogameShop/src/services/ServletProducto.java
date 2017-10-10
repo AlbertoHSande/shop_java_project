@@ -49,16 +49,17 @@ public class ServletProducto extends HttpServlet {
 		p.setPlataforma(request.getParameter("plataforma"));
 		p.setCategoria(request.getParameter("categoria"));
 		p.setStock(Integer.parseInt(request.getParameter("stock")));
-		/*p.setPrecio(Float.parseFloat(request.getParameter("precio")));
+		p.setPrecio(Float.parseFloat(request.getParameter("precio")));
 		// revisar formato con el que envía el form
 		String dateTarget = request.getParameter("fecha");
 		DateFormat df = new SimpleDateFormat("");
-		p.setFecha(df.parse(dateTarget));
+		//p.setFecha(df.parse(dateTarget));
 		p.setDescripcion(request.getParameter("descripcion"));
-		System.out.println("Nombre: "+p.getNombre()+" Plat: "+p.getPlataforma()+" Catego: "+p.getCategoria()+
+		/*System.out.println("Nombre: "+p.getNombre()+" Plat: "+p.getPlataforma()+" Catego: "+p.getCategoria()+
 		" Stock: "+p.getStock()+ " Precio: "+p.getPrecio()+" Fecha: "+p.getFecha());
 		*/
-		System.out.println("Nombre: "+p.getNombre()+" Plat: "+p.getPlataforma()+" Catego: "+p.getCategoria()+" Stock: "+p.getStock());
+		System.out.println("Nombre: "+p.getNombre()+" Plat: "+p.getPlataforma()+" Catego: "+p.getCategoria()+" Stock: "+p.getStock()
+		+ " Precio: "+p.getPrecio()+" Fecha: "+p.getFecha());
 		return p;
 	}
 	
