@@ -103,6 +103,11 @@ public class ServletProducto extends HttpServlet {
 	                
 	               // response.sendRedirect("paises?operacion=listado");
 	            }
+	            else {
+	            	request.setAttribute("listaproducto", op.findAll());
+	                RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+	                view.forward(request, response);
+	            }
 	        
 	        
 	        }  catch (Exception e) {
