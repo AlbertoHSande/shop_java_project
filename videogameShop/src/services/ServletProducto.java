@@ -89,10 +89,10 @@ public class ServletProducto extends HttpServlet {
 
 	            // Comprobamos el tipo de accion que se solicita
 	            operacion = request.getParameter("operacion");
-	          //  DAOProducto op = new DAOProducto();
+	            DAOProducto op = new DAOProducto();
 	            if (operacion.equals("alta")) {
 	                //ALTA
-	            	getDatos(request);
+	            	op.insert(getDatos(request));
 	               // op.insert(getDatos(request));
 	                
 	               // response.sendRedirect("paises?operacion=listado");

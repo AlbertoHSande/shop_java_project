@@ -5,6 +5,7 @@ package model;
 */
 public class Usuario {
 	
+	private String id;
 	private String nombre;
 	private String apellidos;
 	private String dni;
@@ -15,7 +16,7 @@ public class Usuario {
 	
 	
 	public Usuario(){
-		
+		id="";
 		nombre="";
 		apellidos="";
 		dni="";
@@ -24,6 +25,14 @@ public class Usuario {
 		psswd="";
 		isadmin=false;
 		
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
