@@ -5,7 +5,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,57 +13,49 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DAOInterface;
 import dao.DAOProducto;
-
 import model.Producto;
+import model.Usuario;
 
-//@WebServlet("/producto")
-
-public class ServletProducto extends HttpServlet {
-
-	/**
-	 * 
-	 */
+/**
+ * Servlet implementation class servlet_usuario
+ */
+@WebServlet("/usuario")
+public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public void sProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+	public void sUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
 			String operation = request.getParameter("operation");
-			DAOInterface dao = new DAOProducto();
-			Producto p = getDatos(request);
+			DAOInterface dao = new DAOUsuario();
 			
 			if(operation.equals("alta")) {
-				dao.insert(p);
-				response.sendRedirect("productos.html?listado");
+				dao.insert(request);
+				response.sendRedirect("usuarios.html?listado");
 			}
-			
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
 
 	}
-	
-	public Producto getDatos(HttpServletRequest request) throws ParseException {
-		Producto p = new Producto();
-		p.setNombre(request.getParameter("nombre"));
-		p.setPlataforma(request.getParameter("plataforma"));
-		p.setCategoria(request.getParameter("categoria"));
-		p.setStock(Integer.parseInt(request.getParameter("stock")));
-		p.setPrecio(Float.parseFloat(request.getParameter("precio")));
-		// revisar formato con el que envía el form
-		String dateTarget = request.getParameter("fecha");
-		DateFormat df = new SimpleDateFormat("");
-		p.setFecha(df.parse(dateTarget));
-		p.setDescripcion(request.getParameter("descripcion"));
-		return p;
+	public Usuario getDatos(HttpServletRequest request) throws ParseException {
+		Usuario u = new Usuario();
+		u.setNombre( request.getParameter("nombre"));
+		u.setApellidos(request.getParameter("apellidos"));
+		u.setDni(request.getParameter("DNI"));
+		u.setEmail(request.getParameter("stock"));
+		u.setNick(request.getParameter("username"));
+		u.setPsswd(request.getParameter("descripcion"));
+		return u;
 	}
-	
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		sUsuario(request, response);
 	}
 
 	/**
@@ -72,6 +63,7 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		sProducto(request, response);
+		sUsuario(request, response);
 	}
+
 }

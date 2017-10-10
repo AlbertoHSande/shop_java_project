@@ -23,8 +23,8 @@ public class ConnectionDB {
 		pool = new BasicDataSource();
 		pool.setDriverClassName("com.mysql.jdbc.Driver");
 		pool.setUsername("root");
-		pool.setPassword("");
-		pool.setUrl("jdbc:mysql://localhost/test");
+		pool.setPassword("1111");
+		pool.setUrl("jdbc:mysql://localhost/videogameshop");
 		pool.setInitialSize(40); 
 
 	}
