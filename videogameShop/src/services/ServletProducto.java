@@ -17,7 +17,7 @@ import dao.DAOProducto;
 
 import model.Producto;
 
-//@WebServlet("/producto")
+@WebServlet("/producto")
 
 public class ServletProducto extends HttpServlet {
 
@@ -50,7 +50,7 @@ public class ServletProducto extends HttpServlet {
 		p.setCategoria(request.getParameter("categoria"));
 		p.setStock(Integer.parseInt(request.getParameter("stock")));
 		p.setPrecio(Float.parseFloat(request.getParameter("precio")));
-		// revisar formato con el que envía el form
+		// revisar formato con el que envia el form
 		String dateTarget = request.getParameter("fecha");
 		DateFormat df = new SimpleDateFormat("");
 		p.setFecha(df.parse(dateTarget));
@@ -64,7 +64,7 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		sProducto(request, response);
 	}
 
 	/**
@@ -72,6 +72,6 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		sProducto(request, response);
+		doGet(request, response);
 	}
 }
