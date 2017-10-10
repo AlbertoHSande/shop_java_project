@@ -17,7 +17,7 @@ import dao.DAOProducto;
 
 import model.Producto;
 
-@WebServlet("/producto")
+//@WebServlet("/producto")
 
 public class ServletProducto extends HttpServlet {
 
@@ -36,6 +36,7 @@ public class ServletProducto extends HttpServlet {
 				dao.insert(p);
 				response.sendRedirect("productos.html?listado");
 			}
+			
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
@@ -44,7 +45,7 @@ public class ServletProducto extends HttpServlet {
 	
 	public Producto getDatos(HttpServletRequest request) throws ParseException {
 		Producto p = new Producto();
-		p.setNombre( request.getParameter("nombre"));
+		p.setNombre(request.getParameter("nombre"));
 		p.setPlataforma(request.getParameter("plataforma"));
 		p.setCategoria(request.getParameter("categoria"));
 		p.setStock(Integer.parseInt(request.getParameter("stock")));
@@ -56,12 +57,14 @@ public class ServletProducto extends HttpServlet {
 		p.setDescripcion(request.getParameter("descripcion"));
 		return p;
 	}
+	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -69,7 +72,6 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		sProducto(request, response);
 	}
-
 }

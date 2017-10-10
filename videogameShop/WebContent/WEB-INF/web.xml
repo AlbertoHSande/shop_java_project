@@ -8,5 +8,14 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>Interface_producto.html</welcome-file>
   </welcome-file-list>
+  <servlet>
+  <servlet-name>s</servlet-name>
+  <servlet-class>services.ServletProducto</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>s</servlet-name>
+  <url-pattern>/servlet_producto</url-pattern> 
+  </servlet-mapping>
 </web-app>
