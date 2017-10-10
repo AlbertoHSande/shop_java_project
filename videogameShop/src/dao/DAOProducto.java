@@ -1,11 +1,14 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Vector;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+
 
 import data.ConnectionDB;
 import model.Producto;
@@ -56,10 +59,93 @@ public class DAOProducto implements DAOInterface {
 		return null;
 	}
 
+
+	
+	public Vector<Producto> findAll(){
+		
+		Connection connection=null;
+		Vector <Producto>productos;
+		productos=new Vector<Producto>();
+		
+		try{
+
+			ConnectionDB pool = ConnectionDB.getInstancia();
+			BasicDataSource datasource = pool.getPool();
+			connection = datasource.getConnection();
+			Statement s = connection.createStatement();
+
+			String query="SELECT * FROM PRODUCTO";
+			
+			ResultSet result=s.executeQuery(query);
+
+			Producto p;
+			
+			while(result.next()){
+				p=new Producto();
+				p.setId_producto(result.getInt(1));
+				p.setNombre(result.getString(2));
+				p.setPlataforma(result.getString(3));
+				p.setCategoria(result.getString(4));
+				p.setStock(result.getInt(5));
+				p.setPrecio(result.getFloat(6));
+				p.setFecha(result.getString(7));
+				p.setDescripcion(result.getString(8));
+				productos.addElement(p);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally {
+			if (connection != null) {
+
+				try {
+					connection.close();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return productos;
+	}
+
+	public int delete(Producto p){
+		Connection connection=null;
+		int i=-1;
+		try{
+			ConnectionDB pool = ConnectionDB.getInstancia();
+			BasicDataSource datasource = pool.getPool();
+			connection = datasource.getConnection();
+			Statement s = connection.createStatement();
+
+			String query="DELETE FROM CLIENTE WHERE ID = '" +p.getId_producto()+"'";
+		
+
+			i=s.executeUpdate(query);
+			
+		
+		}catch(Exception e){
+			System.out.println("error");
+		}
+		finally {
+			if (connection != null) {
+
+				try {
+					connection.close();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return i;
+	}
+
 	@Override
-	public List findAll() {
+	public int update(Object ov) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
@@ -70,12 +156,6 @@ public class DAOProducto implements DAOInterface {
 
 	@Override
 	public int insert(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int update(Object ov) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
