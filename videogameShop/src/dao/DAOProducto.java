@@ -11,29 +11,28 @@ import data.ConnectionDB;
 import model.Producto;
 
 /**
-*
-* @author Ruben
-*/
-public class DAOProducto implements DAOInterface{
-	
-	public int insert(Producto p){
+ *
+ * @author Ruben
+ */
+public class DAOProducto implements DAOInterface {
+
+	public int insert(Producto p) {
 		Connection connection = null;
-		int i=0;
-		try
-		{
-		
+		int i = 0;
+		try {
+
 			ConnectionDB pool = ConnectionDB.getInstancia();
-			BasicDataSource datasource = pool.getPool(); 
+			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
-			
-			String query = "INSERT INTO PRODUCTO(idproducto, nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('" + p.getId_producto() + "',"+ "'"+ p.getNombre() + "'," + p.getPlataforma() + "'," + p.getCategoria()+ "'," + p.getPrecio()+ "'," + p.getFecha()+ "'," + p.getDescripcion()+")";
-			
-			i=s.executeUpdate(query);
+			System.out.println(p.getDescripcion());
+			String query = "INSERT INTO PRODUCTO(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
+				+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','"+ p.getStock() + "','"  + p.getPrecio() + "','"
+					+ p.getFecha() + "','" + p.getDescripcion() + "')";
 
-			
-		}  
-		catch (Exception e) {
+			i = s.executeUpdate(query);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -42,8 +41,7 @@ public class DAOProducto implements DAOInterface{
 
 				try {
 					connection.close();
-				} 
-				catch (SQLException e) {
+				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
@@ -81,6 +79,5 @@ public class DAOProducto implements DAOInterface{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
+
 }
