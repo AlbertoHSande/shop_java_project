@@ -29,12 +29,13 @@ public class ServletUsuario extends HttpServlet {
      */
 	public void sUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
-			String operation = request.getParameter("operation");
+			String operation = request.getParameter("operacion");
 			DAOInterface dao = new DAOUsuario();
+			Usuario u = getDatos(request);
 			
 			if(operation.equals("alta")) {
-				dao.insert(request);
-				response.sendRedirect("usuarios.html?listado");
+				dao.insert(u);
+				//response.sendRedirect("usuarios.html?listado");
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
