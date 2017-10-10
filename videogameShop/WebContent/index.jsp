@@ -10,7 +10,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%@include  file="cabecera.html" %>
+	<%@include  file="header1.html" %>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">

@@ -105,8 +105,8 @@ public class ServletProducto extends HttpServlet {
 	            }
 	            else {
 	            	request.setAttribute("listaproducto", op.findAll());
-	                RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-	                view.forward(request, response);
+/*	                RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+	                view.forward(request, response);*/
 	            }
 	        
 	        
