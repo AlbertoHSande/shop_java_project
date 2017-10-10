@@ -74,7 +74,6 @@ public class ServletProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		/*
 		Producto p = new Producto();
 		p.setNombre(request.getParameter("nombre"));
@@ -101,8 +100,5 @@ public class ServletProducto extends HttpServlet {
 	                e.printStackTrace();
 	                System.out.println("----------------------------------------------------------");
 	            }
-=======
-		sProducto(request, response);
->>>>>>> branch 'master' of https://github.com/HDsettings/shop_java_project.git
 	}
 }
