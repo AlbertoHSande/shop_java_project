@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -19,13 +20,18 @@ public class DAOUsuario implements DAOInterface {
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			con = datasource.getConnection();
-			Statement s = con.createStatement();
+			
+			PreparedStatement s = con.prepareStatement("INSERT INTO usuario VALUES (?,?,?,?,?,?,?)");
 
-			String query = "INSERT INTO USUARIO(idusuario, nombre, apellidos, DNI, email, nombreusuario, password) VALUES ('"
-					+ u.getId() + "'," + "'" + u.getNombre() + "'," + u.getApellidos() + "'," + u.getDni() + "',"
-					+ u.getNick() + "'," + u.getPsswd() + "')";
+	        s.setString(1, u.getNombre());
+	        s.setString(2, u.getApellidos());
+	        s.setString(3, u.getDni());
+	        s.setString(4, u.getEmail());
+	        s.setString(5, u.getNick());
+	        s.setString(6, u.getPsswd());
+	        s.setBoolean(7, u.isIsadmin());
 
-			i = s.executeUpdate(query);
+	        i=s.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
