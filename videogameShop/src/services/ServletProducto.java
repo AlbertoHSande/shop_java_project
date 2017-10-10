@@ -17,7 +17,8 @@ import dao.DAOProducto;
 
 import model.Producto;
 
-//@WebServlet("/producto")
+//@WebServlet("/servlet_producto")
+//ServletRecuperado
 
 public class ServletProducto extends HttpServlet {
 
