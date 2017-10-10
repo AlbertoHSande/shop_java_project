@@ -35,7 +35,17 @@ public class ServletProducto extends HttpServlet {
 			
 			if(operation.equals("alta")) {
 				dao.insert(p);
-				System.out.println("He introducido datos en la base");
+				System.out.println("He introducido datos en la base " + p.getNombre());
+				//response.sendRedirect("productos.html?listado");
+			}
+			if(operation.equals("modificar")) {
+				dao.update(p);
+				System.out.println("He modificado el producto " + p.getNombre());
+				//response.sendRedirect("productos.html?listado");
+			}
+			if(operation.equals("baja")) {
+				dao.delete(p);
+				System.out.println("He eliminado el producto " + p.getNombre());
 				//response.sendRedirect("productos.html?listado");
 			}
 			

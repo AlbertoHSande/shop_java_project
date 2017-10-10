@@ -20,49 +20,57 @@ import model.Usuario;
 /**
  * Servlet implementation class servlet_usuario
  */
-@WebServlet("/usuario")
+// @WebServlet("/usuario")
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
 	public void sUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
-			String operation = request.getParameter("operation");
-			DAOInterface dao = new DAOUsuario();
-			
-			if(operation.equals("alta")) {
-				dao.insert(request);
-				response.sendRedirect("usuarios.html?listado");
+			String operation = request.getParameter("operacion");
+			DAOUsuario dao = new DAOUsuario();
+			Usuario u = getDatos(request);
+
+			if (operation.equals("alta")) {
+				dao.insert(u);
+				// response.sendRedirect("usuarios.html?listado");
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
 
 	}
+
 	public Usuario getDatos(HttpServletRequest request) throws ParseException {
 		Usuario u = new Usuario();
-		u.setNombre( request.getParameter("nombre"));
+		u.setNombre(request.getParameter("nombre"));
 		u.setApellidos(request.getParameter("apellidos"));
-		u.setDni(request.getParameter("DNI"));
-		u.setEmail(request.getParameter("stock"));
+		u.setDni(request.getParameter("dni"));
+		u.setEmail(request.getParameter("email"));
 		u.setNick(request.getParameter("username"));
-		u.setPsswd(request.getParameter("descripcion"));
+		u.setPsswd(request.getParameter("password"));
+		u.setIsadmin(false);
 		return u;
 	}
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sUsuario(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sUsuario(request, response);
 	}

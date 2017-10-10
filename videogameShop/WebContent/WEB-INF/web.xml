@@ -18,4 +18,12 @@
   <servlet-name>s</servlet-name>
   <url-pattern>/servlet_producto</url-pattern> 
   </servlet-mapping>
+  <servlet>
+  <servlet-name>u</servlet-name>
+  <servlet-class>services.ServletUsuario</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>u</servlet-name>
+  <url-pattern>/servlet_usuario</url-pattern> 
+  </servlet-mapping>
 </web-app>
