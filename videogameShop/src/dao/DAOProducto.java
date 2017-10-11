@@ -17,7 +17,7 @@ import model.Producto;
  *
  * @author Ruben
  */
-public class DAOProducto implements DAOInterface {
+public class DAOProducto implements DAOInterface<Producto,String>{
 
 	public int insert(Producto p) {
 		Connection connection = null;
@@ -182,27 +182,9 @@ public class DAOProducto implements DAOInterface {
 	}
 
 	@Override
-	public int update(Object ov) {
+	public int update(Producto ov) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public int delete(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insert(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Object findById(Object key) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
