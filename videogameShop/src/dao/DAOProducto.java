@@ -150,17 +150,26 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 	}
 
 	public int delete(Producto p){
+<<<<<<< HEAD
+=======
+		System.out.println("entro en delete");
+>>>>>>> branch 'Interface' of https://github.com/HDsettings/shop_java_project.git
 		Connection connection=null;
 		int i=-1;
 		try{
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
+<<<<<<< HEAD
 			Statement s = connection.createStatement();
 
 			String query="DELETE FROM USUARIO WHERE ID = '" +p.getId_producto()+"'";
 		
 
+=======
+			Statement s = connection.createStatement();
+			String query="DELETE FROM producto WHERE idProducto="+p.getId_producto()+";";
+>>>>>>> branch 'Interface' of https://github.com/HDsettings/shop_java_project.git
 			i=s.executeUpdate(query);
 			
 		
@@ -180,11 +189,51 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 		}
 		return i;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public int update(Producto ov) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+=======
+	
+	
+
+	public int update(Producto p) {
+		Connection connection = null;
+		int i = 0;
+		try {
+
+			ConnectionDB pool = ConnectionDB.getInstancia();
+			BasicDataSource datasource = pool.getPool();
+			connection = datasource.getConnection();
+			Statement s = connection.createStatement();
+
+			String query = "UPDATE producto SET(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
+					+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','" + p.getStock()
+					+ "','" + p.getPrecio() + "','" + p.getFecha() + "','" + p.getDescripcion() + "')";
+
+			i = s.executeUpdate(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			if (connection != null) {
+
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return i;
+	}
+	
+>>>>>>> branch 'Interface' of https://github.com/HDsettings/shop_java_project.git
 
 }
