@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,7 +9,6 @@ import java.util.List;
 import java.util.Vector;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
 
 import data.ConnectionDB;
 import model.Producto;
@@ -53,10 +53,49 @@ public class DAOProducto implements DAOInterface {
 		return i;
 	}
 
-	@Override
-	public Object findById(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+	public Producto findById(String id)
+	{
+		Connection conexion = null;
+		Producto p = null;
+		try
+		{
+			ConnectionDB pool = ConnectionDB.getInstancia();
+			BasicDataSource datasource = pool.getPool();
+			conexion = datasource.getConnection();
+			
+				
+			String query = "select * from producto where id = ?" ;
+			
+			PreparedStatement s = conexion.prepareStatement(query);
+	    
+			s.setString(1,id);
+	    
+			ResultSet result = s.executeQuery ();
+	    
+			if (result.next())
+			{
+				p = new Producto();
+				p.setId_producto(result.getInt(1));
+				p.setNombre(result.getString(2));
+				p.setPlataforma(result.getString(3));
+				p.setCategoria(result.getString(4));
+				p.setStock(result.getInt(5));
+				p.setPrecio(result.getFloat(6));
+				p.setFecha(result.getString(7));
+				p.setDescripcion(result.getString(8));
+			}
+	        conexion.close();
+			
+		}
+		
+		
+		catch (Exception ex)
+		{
+			System.out.println ("Error"+ex.getMessage());
+		}
+
+
+		return p;
 	}
 
 
@@ -158,6 +197,12 @@ public class DAOProducto implements DAOInterface {
 	public int insert(Object ov) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Object findById(Object key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
