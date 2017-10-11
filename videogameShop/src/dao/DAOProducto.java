@@ -158,18 +158,11 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
-<<<<<<< HEAD
+
 
 			Statement s = connection.createStatement();
 			String query="DELETE FROM producto WHERE idProducto="+p.getId_producto()+";";
 
-=======
-			Statement s = connection.createStatement();
-
-			String query="DELETE FROM producto WHERE ID = '" +p.getId_producto()+"'";
-		
-
->>>>>>> branch 'master' of https://github.com/HDsettings/shop_java_project.git
 			i=s.executeUpdate(query);
 			
 		
