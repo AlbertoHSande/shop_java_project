@@ -22,7 +22,7 @@
 			<c:forEach var="juego" items="${listaproducto}">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" />
+						<img alt="Bootstrap Thumbnail First" src="./images/${juego.id_producto}.jpg" onerror="this.src='./images/no_image.jpg';" />
 						<div class="caption">
 							<h3>
 								${juego.nombre}
