@@ -7,26 +7,25 @@
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>services.ServletIndex</servlet-class>
-</servlet>
-
-<servlet-mapping>
+  </servlet>
+  <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
-</servlet-mapping>
-  <servlet>
-  <servlet-name>s</servlet-name>
-  <servlet-class>services.ServletProducto</servlet-class> 
-  </servlet>
-  <servlet-mapping>
-  <servlet-name>s</servlet-name>
-  <url-pattern>/servlet_producto</url-pattern> 
   </servlet-mapping>
   <servlet>
-  <servlet-name>u</servlet-name>
-  <servlet-class>services.ServletUsuario</servlet-class> 
+    <servlet-name>s</servlet-name>
+    <servlet-class>services.ServletProducto</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>u</servlet-name>
-  <url-pattern>/servlet_usuario</url-pattern> 
+    <servlet-name>s</servlet-name>
+    <url-pattern>/servlet_producto</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>u</servlet-name>
+    <servlet-class>services.ServletUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>u</servlet-name>
+    <url-pattern>/servlet_usuario</url-pattern>
   </servlet-mapping>
 </web-app>
