@@ -31,28 +31,32 @@ public class ServletProducto extends HttpServlet {
 		try {
 			String operation = request.getParameter("operacion");
 			DAOProducto dao = new DAOProducto();
-			Producto p = getDatos(request);
+			//Producto p = getDatos(request);
 			
 			if(operation.equals("alta")) {
+				Producto p = getDatos(request);
 				dao.insert(p);
 				System.out.println("He introducido datos en la base " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
+				response.sendRedirect("Interface_producto.html");
 			}
 			else if(operation.equals("modificar")) {
-				dao.update(p);
-				System.out.println("He modificado el producto " + p.getNombre());
+				String pg= request.getParameter("id");
+				System.out.println(pg);
+				//Producto p = request.getParameter("id");
+				//p = request.getParameter("id");
+				//dao.modificarProducto(p);
+			//	System.out.println("He modificado el producto " + p.getNombre());
 				//response.sendRedirect("productos.html?listado");
 			}
 			else if(operation.equals("baja")) {
-				dao.delete(p);
-				System.out.println("He eliminado el producto " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
+				dao.delete(Integer.parseInt(request.getParameter("id")));
+				response.sendRedirect("index");
+				//System.out.println("He eliminado el producto ");
 			}
 			
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
-
 	}
 	
 	public Producto getDatos(HttpServletRequest request) throws ParseException {
@@ -83,41 +87,6 @@ public class ServletProducto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		/*
-		Producto p = new Producto();
-		p.setNombre(request.getParameter("nombre"));
-		System.out.println(p.getNombre());
-		*/
-		String operacion;
-
-	        try {
-
-	            // Comprobamos el tipo de accion que se solicita
-	            operacion = request.getParameter("operacion");
-	            DAOProducto op = new DAOProducto();
-	            if (operacion.equals("alta")) {
-	                //ALTA
-	            	op.insert(getDatos(request));
-	               // op.insert(getDatos(request));
-	                
-	               // response.sendRedirect("paises?operacion=listado");
-	            }
-	            
-				else if (operacion.equals("listar")){
-					System.out.println("Entra detalles");
-					String id = request.getParameter("id");
-					request.setAttribute("producto", op.findById(id));
-					RequestDispatcher view = request.getRequestDispatcher("details.jsp");
-					view.forward(request, response);
-				}
-
-	        
-	        
-	        }  catch (Exception e) {
-	                System.out.println("--------------------  FALLO  -----------------------------");
-	                e.printStackTrace();
-	                System.out.println("----------------------------------------------------------");
-	            }
+		sProducto(request,response);	
 	}
 }
