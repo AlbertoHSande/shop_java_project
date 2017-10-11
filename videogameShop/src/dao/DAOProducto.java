@@ -158,7 +158,7 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
 
-			String query="DELETE FROM CLIENTE WHERE ID = '" +p.getId_producto()+"'";
+			String query="DELETE FROM USUARIO WHERE ID = '" +p.getId_producto()+"'";
 		
 
 			i=s.executeUpdate(query);
