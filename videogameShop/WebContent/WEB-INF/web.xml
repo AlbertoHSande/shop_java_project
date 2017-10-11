@@ -12,15 +12,6 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>s</servlet-name>
-    <servlet-class>services.ServletProducto</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>s</servlet-name>
-    <url-pattern>/servlet_producto</url-pattern>
-  </servlet-mapping>
   <servlet>
     <servlet-name>s</servlet-name>
     <servlet-class>services.ServletProducto</servlet-class>
