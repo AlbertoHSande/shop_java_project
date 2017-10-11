@@ -93,8 +93,6 @@ public class DAOProducto implements DAOInterface {
 		{
 			System.out.println ("Error"+ex.getMessage());
 		}
-
-
 		return p;
 	}
 
@@ -159,13 +157,8 @@ public class DAOProducto implements DAOInterface {
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
-
 			String query="DELETE FROM producto WHERE idProducto="+p+";";
-		
-System.out.println(query);
 			i=s.executeUpdate(query);
-			
-		
 		}catch(Exception e){
 			System.out.println("error");
 		}
@@ -182,6 +175,43 @@ System.out.println(query);
 		}
 		return i;
 	}
+	
+	
+
+	public int modificarProducto(Producto p) {
+		Connection connection = null;
+		int i = 0;
+		try {
+
+			ConnectionDB pool = ConnectionDB.getInstancia();
+			BasicDataSource datasource = pool.getPool();
+			connection = datasource.getConnection();
+			Statement s = connection.createStatement();
+
+			String query = "UPDATE producto SET(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
+					+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','" + p.getStock()
+					+ "','" + p.getPrecio() + "','" + p.getFecha() + "','" + p.getDescripcion() + "')";
+
+			i = s.executeUpdate(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			if (connection != null) {
+
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return i;
+	}
+	
 
 	@Override
 	public int update(Object ov) {

@@ -28,8 +28,6 @@ public class ServletProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void sProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		//String opera = request.getParameter("id");
-		System.out.println("LLEGO AL Method");
 		try {
 			String operation = request.getParameter("operacion");
 			DAOProducto dao = new DAOProducto();
@@ -39,51 +37,26 @@ public class ServletProducto extends HttpServlet {
 				Producto p = getDatos(request);
 				dao.insert(p);
 				System.out.println("He introducido datos en la base " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
+				response.sendRedirect("Interface_producto.html");
 			}
 			else if(operation.equals("modificar")) {
-				//dao.update(p);
+				String pg= request.getParameter("id");
+				System.out.println(pg);
+				//Producto p = request.getParameter("id");
+				//p = request.getParameter("id");
+				//dao.modificarProducto(p);
 			//	System.out.println("He modificado el producto " + p.getNombre());
 				//response.sendRedirect("productos.html?listado");
 			}
 			else if(operation.equals("baja")) {
 				dao.delete(Integer.parseInt(request.getParameter("id")));
-				System.out.println("He eliminado el producto ");
+				response.sendRedirect("index");
+				//System.out.println("He eliminado el producto ");
 			}
 			
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
-		
-		
-		
-		/*
-		try {
-			String operation = request.getParameter("operacion");
-			DAOProducto dao = new DAOProducto();
-			Producto p = getDatos(request);
-			
-			if(operation.equals("alta")) {
-				dao.insert(p);
-				System.out.println("He introducido datos en la base " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
-			}
-			else if(operation.equals("modificar")) {
-				dao.update(p);
-				System.out.println("He modificado el producto " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
-			}
-			else if(operation.equals("baja")) {
-				System.out.println("Toi en baja");
-				dao.delete(Integer.parseInt(request.getParameter("id")));
-				System.out.println("He eliminado el producto " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
-			}
-			
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getStackTrace());
-		}
-	*/
 	}
 	
 	public Producto getDatos(HttpServletRequest request) throws ParseException {
@@ -114,39 +87,6 @@ public class ServletProducto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		sProducto(request,response);
-		
-		
-		/*
-		String opera = request.getParameter("id");
-		System.out.println("LLEGO AL POST "+opera);
-		try {
-			String operation = request.getParameter("operacion");
-			DAOProducto dao = new DAOProducto();
-			//Producto p = getDatos(request);
-			
-			if(operation.equals("alta")) {
-				
-				Producto p = getDatos(request);
-				dao.insert(p);
-				System.out.println("He introducido datos en la base " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
-			}
-			else if(operation.equals("modificar")) {
-				//dao.update(p);
-			//	System.out.println("He modificado el producto " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
-			}
-			else if(operation.equals("baja")) {
-				dao.delete(Integer.parseInt(request.getParameter("id")));
-				System.out.println("He eliminado el producto ");
-			}
-			
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getStackTrace());
-		}*/
-		
-		
-		
+		sProducto(request,response);	
 	}
 }
