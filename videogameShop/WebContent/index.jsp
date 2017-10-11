@@ -32,7 +32,7 @@
 								${juego.descripcion}
 							</p>
 							<p>
-								<a class="btn btn-primary" href="#">Comprar ${juego.precio}€</a> <a class="btn" href="#">Más detalles</a>
+								<a class="btn btn-primary" href="#">Comprar ${juego.precio}€</a> <a class="btn" href="servlet_producto?operacion=listar&id=${juego.id_producto}">Más detalles</a>
 							</p>
 						</div>
 					</div>

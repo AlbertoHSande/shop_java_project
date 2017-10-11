@@ -22,7 +22,6 @@ public class ServletIndex extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DAOProducto op = new DAOProducto();
-		System.out.println("Entra");
 		request.setAttribute("listaproducto", op.findAll());
 		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);

@@ -38,12 +38,12 @@ public class ServletProducto extends HttpServlet {
 				System.out.println("He introducido datos en la base " + p.getNombre());
 				//response.sendRedirect("productos.html?listado");
 			}
-			if(operation.equals("modificar")) {
+			else if(operation.equals("modificar")) {
 				dao.update(p);
 				System.out.println("He modificado el producto " + p.getNombre());
 				//response.sendRedirect("productos.html?listado");
 			}
-			if(operation.equals("baja")) {
+			else if(operation.equals("baja")) {
 				dao.delete(p);
 				System.out.println("He eliminado el producto " + p.getNombre());
 				//response.sendRedirect("productos.html?listado");
@@ -103,6 +103,14 @@ public class ServletProducto extends HttpServlet {
 	                
 	               // response.sendRedirect("paises?operacion=listado");
 	            }
+	            
+				else if (operacion.equals("listar")){
+					System.out.println("Entra detalles");
+					String id = request.getParameter("id");
+					request.setAttribute("producto", op.findById(id));
+					RequestDispatcher view = request.getRequestDispatcher("details.jsp");
+					view.forward(request, response);
+				}
 
 	        
 	        
