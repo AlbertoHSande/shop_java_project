@@ -25,13 +25,14 @@
 						<img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" />
 						<div class="caption">
 							<h3>
-								Thumbnail label
+								${juego.nombre}
 							</h3>
+							<h4>${juego.plataforma}</h4>
 							<p>
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+								${juego.descripcion}
 							</p>
 							<p>
-								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+								<a class="btn btn-primary" href="#">Comprar ${juego.precio}€</a> <a class="btn" href="#">Más detalles</a>
 							</p>
 						</div>
 					</div>
