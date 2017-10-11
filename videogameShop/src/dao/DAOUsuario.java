@@ -13,7 +13,7 @@ import data.ConnectionDB;
 import model.Producto;
 import model.Usuario;
 
-public class DAOUsuario implements DAOInterface {
+public class DAOUsuario implements DAOInterface<Usuario,String> {
 
 	public int insert(Usuario u) {
 		Connection con = null;
@@ -47,17 +47,15 @@ public class DAOUsuario implements DAOInterface {
 		}
 		return i;
 	}
-
 	@Override
-	public Object findById(Object key) {
+	public List findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	//Prueba Buscar nick
-	
-	/*public Usuario findByNick(String nick)
-	{
+
+	@Override
+	public Usuario findById(String key) {
 		Connection conexion = null;
 		Usuario u = null;
 		try
@@ -71,7 +69,7 @@ public class DAOUsuario implements DAOInterface {
 			
 			PreparedStatement s = conexion.prepareStatement(query);
 	    
-			s.setString(1,nick);
+			s.setString(1,key);
 	    
 			ResultSet result = s.executeQuery ();
 	    
@@ -88,40 +86,23 @@ public class DAOUsuario implements DAOInterface {
 				u.setIsadmin(result.getBoolean(8));
 			}
 	        conexion.close();
-			
 		}
-		
-		
 		catch (Exception ex)
-		{
-			System.out.println ("Error"+ex.getMessage());
-		}
-
+    	{
+    		System.out.println ("Error"+ex.getMessage());
+    	}
 
 		return u;
-	}*/
-
-	
-	@Override
-	public List findAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
-	public int delete(Object ov) {
+	public int delete(Usuario ov) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int insert(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int update(Object ov) {
+	public int update(Usuario ov) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

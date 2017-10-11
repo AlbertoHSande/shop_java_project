@@ -11,108 +11,142 @@
 	<div class="container">
 		<div class="row main">
 			<div class="main-login main-center">
-				<h4>Registro de usuario.</h4>
-				<form class="" method="post" action="servlet_usuario?operacion=alta">
+				<div class="cols-sm-6">
+					<h4>Registro de usuario.</h4>
+					<form class="" method="post"
+						action="servlet_usuario?operacion=alta">
 
-					<div class="form-group">
-						<label for="nombre" class="cols-sm-2 control-label">Nombre</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user fa"
-									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									name="nombre" id="nombre" placeholder="Indique su nombre" />
+						<div class="form-group">
+							<label for="nombre" class="cols-sm-2 control-label">Nombre</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span> <input type="text"
+										class="form-control" name="nombre" id="nombre"
+										placeholder="Indique su nombre" />
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="apellido" class="cols-sm-2 control-label">Apellido</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa"
-									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									name="apellido" id="apellido"
-									placeholder="Indique su Apellido " />
+						<div class="form-group">
+							<label for="apellido" class="cols-sm-2 control-label">Apellido</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-users fa" aria-hidden="true"></i></span> <input
+										type="text" class="form-control" name="apellido" id="apellido"
+										placeholder="Indique su Apellido " />
+								</div>
 							</div>
 						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="dni" class="cols-sm-2 control-label">DNI</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa"
-									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									name="dni" id="dni"
-									placeholder="Indique su DNI" />
+
+						<div class="form-group">
+							<label for="dni" class="cols-sm-2 control-label">DNI</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-users fa" aria-hidden="true"></i></span> <input
+										type="text" class="form-control" name="dni" id="dni"
+										placeholder="Indique su DNI" />
+								</div>
 							</div>
 						</div>
-					</div>
-					
 
-					<div class="form-group">
-						<label for="email" class="cols-sm-2 control-label">Email</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
-									type="text" class="form-control" name="email" id="email"
-									placeholder="Indique su Email" />
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
+										type="text" class="form-control" name="email" id="email"
+										placeholder="Indique su Email" />
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="username" class="cols-sm-2 control-label">Nombre
-							de Usuario</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa"
-									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									name="username" id="username"
-									placeholder="Indique Nombre de Usuario " />
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Nombre
+								de Usuario</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-users fa" aria-hidden="true"></i></span> <input
+										type="text" class="form-control" name="username" id="username"
+										placeholder="Indique Nombre de Usuario " />
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="password" class="cols-sm-2 control-label">Password</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
-									type="password" class="form-control" name="password"
-									id="password" placeholder="Enter your Password" />
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
+										type="password" class="form-control" name="password"
+										id="password" placeholder="Enter your Password" />
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="confirm" class="cols-sm-2 control-label">Confirmar
-							Password</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
-									type="password" class="form-control" name="confirm"
-									id="confirm" placeholder="Confirm your Password" />
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirmar
+								Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
+										type="password" class="form-control" name="confirm"
+										id="confirm" placeholder="Confirm your Password" />
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="form-group ">
-						<button type="submit" class="btn btn-success">Añadir</button>
-					</div>
+						<div class="form-group ">
+							<button type="submit" class="btn btn-success">Añadir</button>
+						</div>
 
-				</form>
+					</form>
+				</div>
+
+				<div class="cols-sm-6">
+					<form class="" method="post"
+						action="servlet_login">
+
+						<div class="form-group">
+							<label for="nombre" class="cols-sm-2 control-label">Nombre</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span> <input type="text"
+										class="form-control" name="nombre" id="nombre"
+										placeholder="Indique su nombre" />
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="apellido" class="cols-sm-2 control-label">Contraseña</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="fa fa-users fa" aria-hidden="true"></i></span> <input
+										type="password" class="form-control" name="contra" id="contra"
+										placeholder="Indique su contraseña " />
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+
 			</div>
 		</div>
-	</div>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<!-- 
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!-- 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<!-- <script src="js/bootstrap.min.js"></script> -->
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- <script src="js/bootstrap.min.js"></script> -->
 </body>
 </html>

@@ -21,8 +21,10 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
+				<div class="thumbnail">
 					<img alt="Bootstrap Image Preview"
-						src="http://lorempixel.com/140/140/" />
+						src="./images/${producto.id_producto}.jpg" onerror="this.src='./images/no_image.jpg';" />
+						</div>
 				</div>
 				<div class="col-md-4">
 					<dl>
@@ -48,8 +50,6 @@
 				<div class="col-md-12"></div>
 			</div>
 		</div>
-	</div>
-	</div>
 	</div>
 	<%@include file="Footer.html"%>
 </body>
