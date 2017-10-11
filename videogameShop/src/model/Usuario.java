@@ -5,7 +5,7 @@ package model;
 */
 public class Usuario {
 	
-	private String id;
+	private int id;
 	private String nombre;
 	private String apellidos;
 	private String dni;
@@ -16,7 +16,7 @@ public class Usuario {
 	
 	
 	public Usuario(){
-		id="";
+		id=0;
 		nombre="";
 		apellidos="";
 		dni="";
@@ -27,12 +27,12 @@ public class Usuario {
 		
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(int i) {
+		this.id = i;
 	}
 
 	public String getNombre() {

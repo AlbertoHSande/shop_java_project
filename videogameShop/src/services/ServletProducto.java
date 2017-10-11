@@ -49,7 +49,8 @@ public class ServletProducto extends HttpServlet {
 				//response.sendRedirect("productos.html?listado");
 			}
 			else if(operation.equals("baja")) {
-				dao.delete(Integer.parseInt(request.getParameter("id")));
+				Producto p = dao.findById(request.getParameter("id"));
+				dao.delete(p);
 				response.sendRedirect("index");
 				//System.out.println("He eliminado el producto ");
 			}

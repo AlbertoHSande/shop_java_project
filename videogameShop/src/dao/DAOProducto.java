@@ -17,7 +17,7 @@ import model.Producto;
  *
  * @author Ruben
  */
-public class DAOProducto implements DAOInterface {
+public class DAOProducto implements DAOInterface<Producto,String>{
 
 	public int insert(Producto p) {
 		Connection connection = null;
@@ -147,7 +147,7 @@ public class DAOProducto implements DAOInterface {
 		return productos;
 	}
 
-	public int delete(int p){
+	public int delete(Producto p){
 		System.out.println("entro en delete");
 		Connection connection=null;
 		int i=-1;
@@ -157,7 +157,7 @@ public class DAOProducto implements DAOInterface {
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
-			String query="DELETE FROM producto WHERE idProducto="+p+";";
+			String query="DELETE FROM producto WHERE idProducto="+p.getId_producto()+";";
 			i=s.executeUpdate(query);
 		}catch(Exception e){
 			System.out.println("error");
@@ -178,7 +178,7 @@ public class DAOProducto implements DAOInterface {
 	
 	
 
-	public int modificarProducto(Producto p) {
+	public int update(Producto p) {
 		Connection connection = null;
 		int i = 0;
 		try {
@@ -212,29 +212,5 @@ public class DAOProducto implements DAOInterface {
 		return i;
 	}
 	
-
-	@Override
-	public int update(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insert(Object ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Object findById(Object key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
