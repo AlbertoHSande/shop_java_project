@@ -150,26 +150,18 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 	}
 
 	public int delete(Producto p){
-<<<<<<< HEAD
-=======
 		System.out.println("entro en delete");
->>>>>>> branch 'Interface' of https://github.com/HDsettings/shop_java_project.git
+
 		Connection connection=null;
 		int i=-1;
 		try{
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
-<<<<<<< HEAD
-			Statement s = connection.createStatement();
 
-			String query="DELETE FROM USUARIO WHERE ID = '" +p.getId_producto()+"'";
-		
-
-=======
 			Statement s = connection.createStatement();
 			String query="DELETE FROM producto WHERE idProducto="+p.getId_producto()+";";
->>>>>>> branch 'Interface' of https://github.com/HDsettings/shop_java_project.git
+
 			i=s.executeUpdate(query);
 			
 		
@@ -189,16 +181,7 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 		}
 		return i;
 	}
-<<<<<<< HEAD
 
-	@Override
-	public int update(Producto ov) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-=======
-	
-	
 
 	public int update(Producto p) {
 		Connection connection = null;
@@ -234,6 +217,5 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 		return i;
 	}
 	
->>>>>>> branch 'Interface' of https://github.com/HDsettings/shop_java_project.git
 
 }
