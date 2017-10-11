@@ -149,18 +149,20 @@ public class DAOProducto implements DAOInterface {
 		return productos;
 	}
 
-	public int delete(Producto p){
+	public int delete(int p){
+		System.out.println("entro en delete");
 		Connection connection=null;
 		int i=-1;
 		try{
+			System.out.println("Intento conectarme");
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
 
-			String query="DELETE FROM CLIENTE WHERE ID = '" +p.getId_producto()+"'";
+			String query="DELETE FROM producto WHERE idProducto="+p+";";
 		
-
+System.out.println(query);
 			i=s.executeUpdate(query);
 			
 		

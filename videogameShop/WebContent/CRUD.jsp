@@ -33,8 +33,8 @@
 		out.print("<tr>");
 		out.print("<td>"+producto.getNombre()+"</td>");
 		out.print("<td>"+producto.getPlataforma()+"</td>");
-		out.print("<td><a href='Interface_producto.html?operacion=modificar&id="+producto.getId_producto()+"'>Modificar</a>");
-		out.print("&nbsp | &nbsp<a href='servlet_usuario?operacion=baja&id="+producto.getId_producto()+"'>Borrar</a><tr>");
+		out.print("<td><a href='servlet_producto?operacion=modificar&id="+producto.getId_producto()+"'>Modificar</a>");
+		out.print("&nbsp | &nbsp<a href='servlet_producto?operacion=baja&id="+producto.getId_producto()+"'>Borrar</a><tr>");
     }
 %>
 
