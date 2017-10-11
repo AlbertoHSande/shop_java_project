@@ -64,7 +64,7 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			conexion = datasource.getConnection();
 			
 				
-			String query = "select * from producto where id = ?" ;
+			String query = "select * from producto where idProducto = ?" ;
 			
 			PreparedStatement s = conexion.prepareStatement(query);
 	    
