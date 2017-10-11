@@ -12,6 +12,15 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>s</servlet-name>
+    <servlet-class>services.ServletProducto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>s</servlet-name>
+    <url-pattern>/servlet_producto</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>s</servlet-name>
     <servlet-class>services.ServletProducto</servlet-class>
@@ -27,13 +36,5 @@
   <servlet-mapping>
     <servlet-name>u</servlet-name>
     <url-pattern>/servlet_usuario</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>l</servlet-name>
-    <servlet-class>services.ServletLogin</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>l</servlet-name>
-    <url-pattern>/servlet_login</url-pattern>
   </servlet-mapping>
 </web-app>
