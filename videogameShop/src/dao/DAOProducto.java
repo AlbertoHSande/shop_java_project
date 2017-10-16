@@ -97,8 +97,6 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 
 		return p;
 	}
-
-
 	
 	public Vector<Producto> findAll(){
 		
@@ -158,7 +156,7 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
 
-			String query="DELETE FROM producto WHERE ID = '" +p.getId_producto()+"'";
+			String query="DELETE FROM USUARIO WHERE ID = '" +p.getId_producto()+"'";
 		
 
 			i=s.executeUpdate(query);
