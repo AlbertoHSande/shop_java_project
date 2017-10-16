@@ -30,12 +30,11 @@ CREATE TABLE `usuario` (
   `email` varchar(45) NOT NULL,
   `nick` varchar(45) NOT NULL,
   `password` varchar(10) NOT NULL,
-  `isadmin` blob NOT NULL,
+  `isadmin` varchar(10) NOT NULL,
   PRIMARY KEY (`idusuario`),
   UNIQUE KEY `DNI_UNIQUE` (`DNI`),
   UNIQUE KEY `e-mail_UNIQUE` (`email`),
-  UNIQUE KEY `nombre usuario_UNIQUE` (`nick`),
-  UNIQUE KEY `password_UNIQUE` (`password`)
+  UNIQUE KEY `nombre usuario_UNIQUE` (`nick`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
