@@ -24,7 +24,7 @@ public class DAOUsuario implements DAOInterface<Usuario,String> {
 			con = datasource.getConnection();
 			Statement s = con.createStatement();
 
-			String query = "INSERT INTO usuario(nombre, apellidos, DNI, email, nick, password, isadmin) VALUES ('"
+			String query = "INSERT INTO usuario(nombre, apellidos, dni, email, nick, password, isadmin) VALUES ('"
 					+ u.getNombre() + "','" + u.getApellidos() + "','" + u.getDni() + "','" + u.getEmail() + "','"
 					+ u.getNick() + "','" + u.getPsswd() + "','" + u.isIsadmin() + "')";
 
