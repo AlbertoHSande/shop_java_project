@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Vector;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
@@ -61,16 +62,16 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			conexion = datasource.getConnection();
-
-
+			
+				
 			String query = "select * from producto where idProducto = ?" ;
-
+			
 			PreparedStatement s = conexion.prepareStatement(query);
-
+	    
 			s.setString(1,id);
-
+	    
 			ResultSet result = s.executeQuery ();
-
+	    
 			if (result.next())
 			{
 				p = new Producto();
@@ -83,26 +84,28 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 				p.setFecha(result.getString(7));
 				p.setDescripcion(result.getString(8));
 			}
-			conexion.close();
-
+	        conexion.close();
+			
 		}
-
-
+		
+		
 		catch (Exception ex)
 		{
 			System.out.println ("Error"+ex.getMessage());
 		}
+
+
 		return p;
 	}
 
 
-
+	
 	public Vector<Producto> findAll(){
-
+		
 		Connection connection=null;
 		Vector <Producto>productos;
 		productos=new Vector<Producto>();
-
+		
 		try{
 
 			ConnectionDB pool = ConnectionDB.getInstancia();
@@ -111,11 +114,11 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			Statement s = connection.createStatement();
 
 			String query="SELECT * FROM PRODUCTO";
-
+			
 			ResultSet result=s.executeQuery(query);
 
 			Producto p;
-
+			
 			while(result.next()){
 				p=new Producto();
 				p.setId_producto(result.getInt(1));
@@ -127,7 +130,7 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 				p.setFecha(result.getString(7));
 				p.setDescripcion(result.getString(8));
 				productos.addElement(p);
-
+				
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -148,16 +151,21 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 
 	public int delete(Producto p){
 		System.out.println("entro en delete");
+
 		Connection connection=null;
 		int i=-1;
 		try{
-			System.out.println("Intento conectarme");
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
+
+
 			Statement s = connection.createStatement();
 			String query="DELETE FROM producto WHERE idProducto="+p.getId_producto()+";";
+
 			i=s.executeUpdate(query);
+			
+		
 		}catch(Exception e){
 			System.out.println("error");
 		}
@@ -176,7 +184,6 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 	}
 
 
-
 	public int update(Producto p) {
 		Connection connection = null;
 		int i = 0;
@@ -186,11 +193,13 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
-			String query = "UPDATE producto SET nombre='"+p.getNombre()+"',plataforma='"+p.getPlataforma()+"',categoria='"+p.getCategoria()+
-					"',stock="+p.getStock()+",precio="+p.getPrecio()+",fecha='"+p.getFecha()+"',descripcion='"+p.getDescripcion()+
-					"' WHERE idProducto="+p.getId_producto()+";";
+
+			String query = "UPDATE producto SET(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
+					+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','" + p.getStock()
+					+ "','" + p.getPrecio() + "','" + p.getFecha() + "','" + p.getDescripcion() + "')";
+
 			i = s.executeUpdate(query);
-			//System.out.println("La QUERY ES: "+query);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -208,6 +217,6 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 		}
 		return i;
 	}
-
+	
 
 }

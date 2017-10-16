@@ -28,12 +28,12 @@
     <servlet-name>u</servlet-name>
     <url-pattern>/servlet_usuario</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>l</servlet-name>
+    <servlet>
+    <servlet-name>Login</servlet-name>
     <servlet-class>services.ServletLogin</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>l</servlet-name>
+    <servlet-name>Login</servlet-name>
     <url-pattern>/servlet_login</url-pattern>
   </servlet-mapping>
 </web-app>

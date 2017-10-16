@@ -31,12 +31,17 @@ public class ServletUsuario extends HttpServlet {
 		try {
 			String operation = request.getParameter("operacion");
 			DAOUsuario dao = new DAOUsuario();
-			Usuario u = getDatos(request);
+			
 
 			if (operation.equals("alta")) {
+				Usuario u = getDatos(request);
 				dao.insert(u);
-				// response.sendRedirect("usuarios.html?listado");
+				response.sendRedirect("index");
 			}
+			
+			/*else if (operation.equals("login")){
+				Usuario u = dao.findByNick()*/
+	
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}

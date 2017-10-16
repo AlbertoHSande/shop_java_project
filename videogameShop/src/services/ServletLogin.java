@@ -50,9 +50,10 @@ public class ServletLogin extends HttpServlet {
 		String contra= request.getParameter("contra");
 		
 		//para el html
-		ServletOutputStream out;
+		/*ServletOutputStream out;
 		out=response.getOutputStream();
-		response.setContentType("text/html");
+		
+		response.setContentType("text/html");*/
 		
 		
 		usu=(Usuario)dao.findById(id);
@@ -61,21 +62,21 @@ public class ServletLogin extends HttpServlet {
 		if(usu !=null && usu.getPsswd().equals(contra)){
 			
 			//TENEMOS QUE AÑADIR A LA SESION COSAS DE USUARIO
-			
-			out.println("<html>");
+			/*out.println("<html>");
 			out.println("<body>");
 			out.println("usuario validado correctamente");
 			out.println("</body>");
-			out.println("</html>");
-			RequestDispatcher dispatcher;
-			dispatcher=request.getRequestDispatcher("index.jsp");
-			dispatcher.forward(request, response);
+			out.println("</html>");*/
+			/*RequestDispatcher dispatcher;
+			dispatcher=request.getRequestDispatcher("/index");
+			dispatcher.forward(request, response);*/
+			response.sendRedirect("./index");
 		}else{
-			out.println("<html>");
+			/*out.println("<html>");
 			out.println("<body>");
 			out.println("usuario o contraseña incorrectos Prueba otra vez caxo lokoh!!!");
 			out.println("</body>");
-			out.println("</html>");
+			out.println("</html>");*/
 			RequestDispatcher dispatcher;
 			dispatcher=request.getRequestDispatcher("Interface_registrar.html");
 			dispatcher.include(request, response);

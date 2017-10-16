@@ -93,6 +93,39 @@ public class ServletProducto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		sProducto(request,response);	
-	}
+		//sProducto(request,response);	
+		Producto p = new Producto();
+		p.setNombre(request.getParameter("nombre"));
+		System.out.println(p.getNombre());
+		String operacion;
+
+		        try {
+
+		            // Comprobamos el tipo de accion que se solicita
+		            operacion = request.getParameter("operacion");
+		            DAOProducto op = new DAOProducto();
+		            if (operacion.equals("alta")) {
+		                //ALTA
+		                op.insert(getDatos(request));
+		               // op.insert(getDatos(request));
+
+		               // response.sendRedirect("paises?operacion=listado");
+		            }
+
+		            else if (operacion.equals("listar")){
+		                System.out.println("Entra detalles");
+		                String id = request.getParameter("id");
+		                request.setAttribute("producto", op.findById(id));
+		                RequestDispatcher view = request.getRequestDispatcher("details.jsp");
+		                view.forward(request, response);
+		            }
+
+
+
+		        }  catch (Exception e) {
+		                System.out.println("--------------------  FALLO  -----------------------------");
+		                e.printStackTrace();
+		                System.out.println("----------------------------------------------------------");
+		            }
+		}
 }

@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				Videojuegos
+				Tu tienda de videojuegos
 			</h3>
 			<div class="row">
 			<c:forEach var="juego" items="${listaproducto}">
