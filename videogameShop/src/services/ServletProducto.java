@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DAOInterface;
 import dao.DAOProducto;
-
+import javafx.scene.control.Alert;
 import model.Producto;
 
 //@WebServlet("/servlet_producto")
@@ -40,13 +40,12 @@ public class ServletProducto extends HttpServlet {
 				response.sendRedirect("Interface_producto.html");
 			}
 			else if(operation.equals("modificar")) {
-				String pg= request.getParameter("id");
-				System.out.println(pg);
-				//Producto p = request.getParameter("id");
-				//p = request.getParameter("id");
-				//dao.modificarProducto(p);
-			//	System.out.println("He modificado el producto " + p.getNombre());
-				//response.sendRedirect("productos.html?listado");
+				System.out.println("EL ID ES: "+request.getParameter("id"));
+				Producto p = getDatos(request);
+				int idp = Integer.parseInt(request.getParameter("id"));
+				p.setId_producto(idp);
+				dao.update(p);
+				response.sendRedirect("Crud_Producto.jsp");
 			}
 			else if(operation.equals("baja")) {
 				Producto p = dao.findById(request.getParameter("id"));
@@ -80,7 +79,6 @@ public class ServletProducto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 

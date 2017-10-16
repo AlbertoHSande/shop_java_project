@@ -10,7 +10,7 @@
 <head>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Panel de Administración</title>
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 		out.print("<tr>");
 		out.print("<td>"+producto.getNombre()+"</td>");
 		out.print("<td>"+producto.getPlataforma()+"</td>");
-		out.print("<td><a href='servlet_producto?operacion=modificar&id="+producto+"'>Modificar</a>");
+		out.print("<td><a href='modificar_producto.jsp?id="+producto.getId_producto()+"'>Modificar</a>");
 		out.print("&nbsp | &nbsp<a href='servlet_producto?operacion=baja&id="+producto.getId_producto()+"'>Borrar</a><tr>");
     }
 %>
