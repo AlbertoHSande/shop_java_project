@@ -97,6 +97,8 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 
 		return p;
 	}
+
+
 	
 	public Vector<Producto> findAll(){
 		
@@ -148,16 +150,18 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 	}
 
 	public int delete(Producto p){
+		System.out.println("entro en delete");
+
 		Connection connection=null;
 		int i=-1;
 		try{
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
-			Statement s = connection.createStatement();
 
-			String query="DELETE FROM USUARIO WHERE ID = '" +p.getId_producto()+"'";
-		
+
+			Statement s = connection.createStatement();
+			String query="DELETE FROM producto WHERE idProducto="+p.getId_producto()+";";
 
 			i=s.executeUpdate(query);
 			
@@ -179,10 +183,40 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 		return i;
 	}
 
-	@Override
-	public int update(Producto ov) {
-		// TODO Auto-generated method stub
-		return 0;
+
+	public int update(Producto p) {
+		Connection connection = null;
+		int i = 0;
+		try {
+
+			ConnectionDB pool = ConnectionDB.getInstancia();
+			BasicDataSource datasource = pool.getPool();
+			connection = datasource.getConnection();
+			Statement s = connection.createStatement();
+
+			String query = "UPDATE producto SET(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
+					+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','" + p.getStock()
+					+ "','" + p.getPrecio() + "','" + p.getFecha() + "','" + p.getDescripcion() + "')";
+
+			i = s.executeUpdate(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			if (connection != null) {
+
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return i;
 	}
+	
 
 }
