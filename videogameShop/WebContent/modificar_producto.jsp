@@ -17,6 +17,7 @@
 	DAOProducto dao = new DAOProducto();
 	Producto p = dao.findById(request.getParameter("id"));
 %>
+<!--  -->
 <script>
  function myFunction() {
 	document.getElementById('plataforma').value="<%=p.getPlataforma()%>";
