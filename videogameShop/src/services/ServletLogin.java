@@ -76,6 +76,7 @@ public class ServletLogin extends HttpServlet {
 			out.println("usuario o contraseña incorrectos Prueba otra vez caxo lokoh!!!");
 			out.println("</body>");
 			out.println("</html>");
+			
 			RequestDispatcher dispatcher;
 			dispatcher=request.getRequestDispatcher("Interface_registrar.html");
 			dispatcher.include(request, response);
