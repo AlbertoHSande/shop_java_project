@@ -193,17 +193,14 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
 			Statement s = connection.createStatement();
-
-			String query = "UPDATE producto SET(nombre, plataforma, categoria, stock, precio, fecha, descripcion) VALUES ('"
-					+ p.getNombre() + "','" + p.getPlataforma() + "','" + p.getCategoria() + "','" + p.getStock()
-					+ "','" + p.getPrecio() + "','" + p.getFecha() + "','" + p.getDescripcion() + "')";
-
+			String query = "UPDATE producto SET nombre='"+p.getNombre()+"',plataforma='"+p.getPlataforma()+"',categoria='"+p.getCategoria()+
+					"',stock="+p.getStock()+",precio="+p.getPrecio()+",fecha='"+p.getFecha()+"',descripcion='"+p.getDescripcion()+
+					"' WHERE idProducto="+p.getId_producto()+";";
 			i = s.executeUpdate(query);
-
+			//System.out.println("La QUERY ES: "+query);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		finally {
 			if (connection != null) {
 
