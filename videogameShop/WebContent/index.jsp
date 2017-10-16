@@ -10,8 +10,8 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%@include  file="header1.html" %>
-	
+	<%-- <%@include  file="header1.html" %> --%>
+	<c:import url="header.jsp"></c:import>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">

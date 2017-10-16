@@ -58,7 +58,6 @@ public class ServletLogin extends HttpServlet {
 		
 		usu=(Usuario)dao.findById(id);
 		HttpSession sesion=request.getSession(true);
-		
 		if(usu !=null && usu.getPsswd().equals(contra)){
 			
 			//TENEMOS QUE AÑADIR A LA SESION COSAS DE USUARIO
@@ -70,6 +69,12 @@ public class ServletLogin extends HttpServlet {
 			/*RequestDispatcher dispatcher;
 			dispatcher=request.getRequestDispatcher("/index");
 			dispatcher.forward(request, response);*/
+			sesion.setAttribute("nick", usu.getNick());
+			if(usu.isIsadmin()==true){
+				sesion.setAttribute("isAdmin", "true");
+			}
+			System.out.println(usu.getNick());
+			System.out.println((String)sesion.getAttribute("isAdmin"));
 			response.sendRedirect("./index");
 		}else{
 			/*out.println("<html>");
@@ -97,7 +102,8 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		service(request, response);
 	}
 
 }

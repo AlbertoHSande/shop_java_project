@@ -32,7 +32,7 @@ public class ServletProducto extends HttpServlet {
 			String operation = request.getParameter("operacion");
 			DAOProducto dao = new DAOProducto();
 			//Producto p = getDatos(request);
-			
+
 			if(operation.equals("alta")) {
 				Producto p = getDatos(request);
 				dao.insert(p);
@@ -53,12 +53,12 @@ public class ServletProducto extends HttpServlet {
 				response.sendRedirect("index");
 				//System.out.println("He eliminado el producto ");
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}
 	}
-	
+
 	public Producto getDatos(HttpServletRequest request) throws ParseException {
 		Producto p = new Producto();
 		p.setNombre(request.getParameter("nombre"));
@@ -73,7 +73,7 @@ public class ServletProducto extends HttpServlet {
 		p.setDescripcion(request.getParameter("descripcion"));
 		return p;
 	}
-	
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -92,33 +92,33 @@ public class ServletProducto extends HttpServlet {
 		System.out.println(p.getNombre());
 		String operacion;
 
-		        try {
+		try {
 
-		            // Comprobamos el tipo de accion que se solicita
-		            operacion = request.getParameter("operacion");
-		            DAOProducto op = new DAOProducto();
-		            if (operacion.equals("alta")) {
-		                //ALTA
-		                op.insert(getDatos(request));
-		               // op.insert(getDatos(request));
+			// Comprobamos el tipo de accion que se solicita
+			operacion = request.getParameter("operacion");
+			DAOProducto op = new DAOProducto();
+			if (operacion.equals("alta")) {
+				//ALTA
+				op.insert(getDatos(request));
+				// op.insert(getDatos(request));
 
-		               // response.sendRedirect("paises?operacion=listado");
-		            }
+				// response.sendRedirect("paises?operacion=listado");
+			}
 
-		            else if (operacion.equals("listar")){
-		                System.out.println("Entra detalles");
-		                String id = request.getParameter("id");
-		                request.setAttribute("producto", op.findById(id));
-		                RequestDispatcher view = request.getRequestDispatcher("details.jsp");
-		                view.forward(request, response);
-		            }
+			else if (operacion.equals("listar")){
+				System.out.println("Entra detalles");
+				String id = request.getParameter("id");
+				request.setAttribute("producto", op.findById(id));
+				RequestDispatcher view = request.getRequestDispatcher("details.jsp");
+				view.forward(request, response);
+			}
 
 
 
-		        }  catch (Exception e) {
-		                System.out.println("--------------------  FALLO  -----------------------------");
-		                e.printStackTrace();
-		                System.out.println("----------------------------------------------------------");
-		            }
+		}  catch (Exception e) {
+			System.out.println("--------------------  FALLO  -----------------------------");
+			e.printStackTrace();
+			System.out.println("----------------------------------------------------------");
 		}
+	}
 }
