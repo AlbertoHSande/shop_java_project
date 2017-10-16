@@ -17,6 +17,9 @@
 	<div class="container">
 		<h2>Listado de PRODUCTOS</h2>
 		<p>La lista de producto y su acciones son las siguientes:</p>
+		<p>
+		<button type="button" class="btn btn-success" onclick="location.href='Interface_producto.html' ">Añadir Producto</button>
+		</p>
 		<table class="table" id="tabla_admin">
 			<thead>
 				<tr>
