@@ -34,8 +34,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idusuario`),
   UNIQUE KEY `DNI_UNIQUE` (`DNI`),
   UNIQUE KEY `e-mail_UNIQUE` (`email`),
-  UNIQUE KEY `nombre usuario_UNIQUE` (`nick`),
-  UNIQUE KEY `password_UNIQUE` (`password`)
+  UNIQUE KEY `nombre usuario_UNIQUE` (`nick`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
