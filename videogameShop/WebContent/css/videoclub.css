@@ -6,8 +6,8 @@
 body {
     font-family:Arial, Helvetica, sans-serif;
     font-size:11pt;
-    background:url("../images/maxresdefault.jpg");
-    background-repeat: repeat-y;
+  /*  background:url("../images/fondo.jpg");*/
+    background-repeat: repeat-x;
 }
 
 #body p {

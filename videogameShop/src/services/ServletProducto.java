@@ -40,7 +40,7 @@ public class ServletProducto extends HttpServlet {
 				response.sendRedirect("Interface_producto.html");
 			}
 			else if(operation.equals("modificar")) {
-				System.out.println("EL ID ES: "+request.getParameter("id"));
+				//System.out.println("EL ID ES: "+request.getParameter("id"));
 				Producto p = getDatos(request);
 				int idp = Integer.parseInt(request.getParameter("id"));
 				p.setId_producto(idp);
@@ -52,7 +52,14 @@ public class ServletProducto extends HttpServlet {
 				dao.delete(p);
 				response.sendRedirect("index");
 				//System.out.println("He eliminado el producto ");
-			}
+			} 
+			else if (operation.equals("listar")){
+                System.out.println("Entra detalles");
+                String id = request.getParameter("id");
+                request.setAttribute("producto", dao.findById(id));
+                RequestDispatcher view = request.getRequestDispatcher("details.jsp");
+                view.forward(request, response);
+            }
 			
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getStackTrace());
