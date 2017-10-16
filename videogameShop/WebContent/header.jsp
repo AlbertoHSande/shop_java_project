@@ -86,7 +86,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<c:choose>
 					<c:when test="${sessionScope.nick == null }">
-        				<li><a href="login.jsp">Logueo</a></li>
+        				<li><a href="Interface_registrar.html">Logueo</a></li>
        					<br />
 					</c:when>
 					<c:otherwise>
