@@ -9,7 +9,17 @@ body {
   /*  background:url("../images/fondo.jpg");*/
     background-repeat: repeat-x;
 }
+.foto_detalle{
+	/*height: 300px;*/
+	
+	
+}
 
+img.imgprinci{
+	  max-width: 100%;
+  height: 300px;
+	
+}
 #body p {
     padding-left:30px;
 }

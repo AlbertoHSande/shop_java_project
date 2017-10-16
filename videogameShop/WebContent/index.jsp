@@ -8,6 +8,7 @@
 	<title>Videogame Shop</title>
 	<meta charset="UTF-8">
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="./css/videoclub.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<%@include  file="header1.html" %>
@@ -22,7 +23,7 @@
 			<c:forEach var="juego" items="${listaproducto}">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Thumbnail First" src="./images/${juego.id_producto}.jpg" onerror="this.src='./images/no_image.jpg';" />
+						<img alt="Bootstrap Thumbnail First" class="imgprinci" src="./images/${juego.id_producto}.jpg" onerror="this.src='./images/no_image.jpg';" />
 						<div class="caption">
 							<h3>
 								${juego.nombre}
