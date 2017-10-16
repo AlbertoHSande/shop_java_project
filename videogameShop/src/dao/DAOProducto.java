@@ -188,7 +188,7 @@ public class DAOProducto implements DAOInterface<Producto,String>{
 		Connection connection = null;
 		int i = 0;
 		try {
-
+			System.out.println("Entro en update");
 			ConnectionDB pool = ConnectionDB.getInstancia();
 			BasicDataSource datasource = pool.getPool();
 			connection = datasource.getConnection();
