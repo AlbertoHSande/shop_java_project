@@ -12,7 +12,7 @@ public class Usuario {
 	private String email;
 	private String nick;
 	private String psswd;
-	private boolean isadmin;
+	private String isadmin;
 	
 	
 	public Usuario(){
@@ -23,7 +23,7 @@ public class Usuario {
 		email="";
 		nick="";
 		psswd="";
-		isadmin=false;
+		isadmin="false";
 		
 	}
 	
@@ -83,11 +83,11 @@ public class Usuario {
 		this.psswd = psswd;
 	}
 	
-	public boolean isIsadmin() {
+	public String isIsadmin() {
 		return isadmin;
 	}
 	
-	public void setIsadmin(boolean isadmin) {
+	public void setIsadmin(String isadmin) {
 		this.isadmin = isadmin;
 	}
 

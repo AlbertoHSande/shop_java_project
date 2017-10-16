@@ -92,10 +92,12 @@
 					<c:otherwise>
         				Bienvenido ${sessionScope.nick}
         				<br />
+        				<li><a href="${sessionScope.invalidate}">Logout</a></li>
+       					<br />
 					</c:otherwise>
 				</c:choose>
 				<c:if test="${sessionScope.isAdmin == 'true'}">
-					<li><a href="Interface_producto.html">Administración</a></li>
+					<li><a href="Crud_Producto.jsp">Administración</a></li>
        				<br />
 				</c:if>
 			</ul>

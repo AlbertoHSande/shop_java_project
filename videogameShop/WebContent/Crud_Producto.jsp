@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="dao.DAOProducto"%>
 <%@ page import="dao.DAOProducto"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,12 +14,12 @@
 <title>Panel de Administración</title>
 </head>
 <body>
-
+	<c:import url="header.jsp"></c:import>
 	<div class="container">
 		<h2>Listado de PRODUCTOS</h2>
 		<p>La lista de producto y su acciones son las siguientes:</p>
 		<p>
-		<button type="button" class="btn btn-success" onclick="location.href='Interface_producto.html' ">Añadir Producto</button>
+		<button type="button" class="btn btn-success" onclick="location.href='nuevo_producto.jsp' ">Añadir Producto</button>
 		</p>
 		<table class="table" id="tabla_admin">
 			<thead>
@@ -44,5 +45,6 @@
 			</tbody>
 		</table>
 	</div>
+	<%@include  file="Footer.html" %>
 </body>
 </html>

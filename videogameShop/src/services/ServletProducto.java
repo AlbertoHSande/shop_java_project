@@ -37,7 +37,7 @@ public class ServletProducto extends HttpServlet {
 				Producto p = getDatos(request);
 				dao.insert(p);
 				System.out.println("He introducido datos en la base " + p.getNombre());
-				response.sendRedirect("Interface_producto.html");
+				response.sendRedirect("nuevo_producto.jsp");
 			}
 			else if(operation.equals("modificar")) {
 				//System.out.println("EL ID ES: "+request.getParameter("id"));

@@ -70,11 +70,8 @@ public class ServletLogin extends HttpServlet {
 			dispatcher=request.getRequestDispatcher("/index");
 			dispatcher.forward(request, response);*/
 			sesion.setAttribute("nick", usu.getNick());
-			if(usu.isIsadmin()==true){
-				sesion.setAttribute("isAdmin", "true");
-			}
-			System.out.println(usu.getNick());
-			System.out.println((String)sesion.getAttribute("isAdmin"));
+			sesion.setAttribute("isAdmin", usu.isIsadmin());
+			System.out.println(usu.isIsadmin());
 			response.sendRedirect("./index");
 		}else{
 			/*out.println("<html>");

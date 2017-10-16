@@ -83,7 +83,7 @@ public class DAOUsuario implements DAOInterface<Usuario,String> {
 				u.setEmail(result.getString(5));
 				u.setNick(result.getString(6));
 				u.setPsswd(result.getString(7));
-				u.setIsadmin(result.getBoolean(8));
+				u.setIsadmin(result.getString(8));
 			}
 	        conexion.close();
 		}

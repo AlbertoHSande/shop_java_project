@@ -56,7 +56,7 @@ public class ServletUsuario extends HttpServlet {
 		u.setEmail(request.getParameter("email"));
 		u.setNick(request.getParameter("username"));
 		u.setPsswd(request.getParameter("password"));
-		u.setIsadmin(false);
+		u.setIsadmin("false");
 		return u;
 	}
 
