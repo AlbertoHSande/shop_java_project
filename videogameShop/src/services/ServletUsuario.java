@@ -36,7 +36,7 @@ public class ServletUsuario extends HttpServlet {
 			if (operation.equals("alta")) {
 				Usuario u = getDatos(request);
 				dao.insert(u);
-				// response.sendRedirect("usuarios.html?listado");
+				response.sendRedirect("index");
 			}
 			
 			/*else if (operation.equals("login")){
